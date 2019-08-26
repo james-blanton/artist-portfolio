@@ -1,0 +1,146 @@
+body { 
+    color: #222222;
+    padding: 0;
+    margin: 0;
+    font-style: normal;
+    line-height: 1.5;
+    position: relative;
+    cursor: default;
+    font-family:"Helvetica Neue", Arial, sans-serif;
+    font-weight:100;
+    -webkit-font-smoothing:antialiased;
+    background-color: #F1F1F1;
+}
+
+html, body {
+    height: 100%;
+}
+
+img{
+    max-width: 100%;
+    position: relative;
+}
+
+a {
+    color: #040404;
+    text-decoration: none;
+}
+
+h1 {
+    font-family: "futura-pt";
+    font-size: 41px !important;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 0px;
+    font-weight: 300;
+}
+
+
+h2 {
+    font-size:30px !important;
+    font-weight: 400;
+}
+
+#small_content > div.w3-container.w3-light-grey{
+        margin-bottom: 20px;
+}
+
+.w3-input {
+    margin-bottom: 1rem;
+}
+
+.large_textbox {
+    height:13em;
+}
+
+/* w3 overrides */
+
+.w3-container, .w3-panel {
+    padding: 0.01em 16px;
+    margin-top: 15px;
+}
+
+.w3-teal, .w3-hover-light-grey:hover {
+    color: #fff!important;
+    margin-top: 10px;
+}
+
+.w3-btn, .w3-button {
+	margin-top: 10px;
+}
+
+.w3-button-navigation {
+	margin-top: 0px;
+}
+
+.w3-container-header {
+    padding: 0.01em 16px;
+    margin-top: 0px;
+}
+
+.w3-container-header a {
+    margin-top: 0px;
+    font-family: "futura-pt";
+    font-size: 41px;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 0px;
+    font-weight: 300;
+}
+
+.w3-card-4 {
+    box-shadow: none !important;
+}
+
+
+.w3-sand, .w3-hover-sand {
+    color: #000!important;
+    background-color: white !important;
+    border-bottom: #9a9a9a99 1px dotted;
+    border-top: 0px;
+}
+
+.w3-container, .w3-panel {
+    padding: 0.01em 16px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.w3-border-category {
+    border: 0px !important;
+}
+
+.w3-border {
+    border: 0px !important;
+}
+
+.w3-bar .w3-bar-item {
+    padding: 8px 16px;
+    float: none;
+    width: auto;
+    border: none;
+    display: block;
+    outline: 0;
+    text-align: -webkit-center;
+    border-bottom: 1px solid #ccc!important;
+}
+
+.w3-container-header {
+    padding: 0.01em 16px;
+    margin-top: 0px;
+    text-align: -webkit-center;
+    background-color: white !important;
+}
+
+.w3-input{
+    border: 1px solid #ccc !important;
+}
+
+
+/* w3 mobile adjustments */
+@media (max-width: 1071px) {
+    body { 
+    color: #000000;
+    background-color: white;
+    }
+}

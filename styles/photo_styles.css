@@ -1,0 +1,24 @@
+#fixedbutton {
+position: -webkit-sticky;
+position: sticky;
+top: 70px;
+background-color: white;
+z-index: 10000;
+border: 2px 2px 2px solid #a0a0a0;
+bottom: 5.4em;
+width: 100%;
+text-align: center;
+}
+
+@media (max-width: 1071px) {
+	#fixedbutton {
+    	top: 0px;
+	}
+}
+
+@media (max-width: 720px) {
+  #fixedbutton {
+    display: none;
+  }
+
+}
