@@ -43,7 +43,7 @@ loginCheck();
 	<li><a href="new">Create Blog Post</a></li>
 	<li><a href="edit_articles">Edit Blog Posts</a></li>
 	<li><a href="create_blogCategory">Create Blog Category</a></li>
-	<li><a href="edit_blogCategory">Edit Blog Categories</a></li>
+	<li><a href="blog_category_manage">Edit Blog Categories</a></li>
 </ul>
 </div>
 
@@ -53,6 +53,8 @@ loginCheck();
 	<li><a href="artwork_upload">Artwork Upload</a></li>
 	<li><a href="edit_paintings">Edit Paintings</a></li>
 	<li><a href="edit_drawings">Edit Drawings</a></li>
+	<li><a href="#"><strike>Create Art Category</strike></a></li>
+	<li><a href="#"><strike>Edit Art Categories</strike></a></li>
 </ul>
 </div>
 

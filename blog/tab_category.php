@@ -65,15 +65,15 @@ while ($row = mysqli_fetch_assoc($result)) {
 	<td><?php echo $description;?></td>
 
 	<td class="desktop_dropdown">
-		<a href="edit_category?id=<?php echo $id;?>">Edit</a> |
-		<a href="del_category?id=<?php echo $id;?>" onclick="return confirm('Are you sure you want to delete this category?')">Delete</a>
+		<a href="edit_blogCategory?id=<?php echo $id;?>">Edit</a> |
+		<a href="del_blogCategory?id=<?php echo $id;?>" onclick="return confirm('Are you sure you want to delete this category?')">Delete</a>
 	</td>
 
 	<td class="mobile_dropdown">
 		<select id = "mobile_dropdown" onchange="dropdownSelectionCheck(this)">
 			<option name="selection" value="#">&#xf013;</option>
-		    <option value="edit_category?id=<?php echo $id;?>">Edit</option>
-		    <option value="del_category?id=<?php echo $id;?>">Delete</option>
+		    <option value="edit_blogCategory?id=<?php echo $id;?>">Edit</option>
+		    <option value="del_blogCategory?id=<?php echo $id;?>">Delete</option>
 		</select>
 	</td>
 <?php 
