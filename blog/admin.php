@@ -32,9 +32,11 @@ loginCheck();
 <hr class="dotted">
 <h3>Admin Tools</h3>
 
-<ul>
+<div class="w3-container">
+<ul class="admin">
 	<li><a href="edit_contact">Edit 'General Portfolio Info'</a></li>
 </ul>
+</div>
 <hr>
 
 <b>Blog</b><br/>
