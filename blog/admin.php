@@ -28,16 +28,33 @@ loginCheck();
 <div class="w3-container">
 
 <p>Welcome <?php echo $_SESSION['username']; ?></p>
-<p><a href="logout">Logout</a></p>
+<a href="logout">Logout</a>
 <hr class="dotted">
 <h3>Admin Tools</h3>
-<a href="new">Create Blog Post</a><br/><br/>
-<a href="artwork_upload">Artwork Upload</a><br/>
+
+<ul>
+	<li><a href="edit_contact">Edit 'General Portfolio Info'</a></li>
+</ul>
 <hr>
-<a href="edit_contact">Edit 'General Portfolio Info'</a><br/><br/>
-<a href="edit_articles">Edit Blog Posts</a><br/><br/>
-<a href="edit_paintings">Edit Paintings</a><br/><br/>
-<a href="edit_drawings">Edit Drawings</a><br/><br/>
+
+<b>Blog</b><br/>
+<div class="w3-container">
+<ul class="admin">
+	<li><a href="new">Create Blog Post</a></li>
+	<li><a href="edit_articles">Edit Blog Posts</a></li>
+	<li><a href="create_blogCategory">Create Blog Category</a></li>
+	<li><a href="edit_blogCategory">Edit Blog Categories</a></li>
+</ul>
+</div>
+
+<b>Artwork</b><br/>
+<div class="w3-container">
+<ul class="admin">
+	<li><a href="artwork_upload">Artwork Upload</a></li>
+	<li><a href="edit_paintings">Edit Paintings</a></li>
+	<li><a href="edit_drawings">Edit Drawings</a></li>
+</ul>
+</div>
 
 </div>
 
