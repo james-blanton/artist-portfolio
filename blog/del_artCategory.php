@@ -2,7 +2,7 @@
 /*-------------------------------------------
 FILE PURPOSE
 
-Deletes a blog category.
+Deletes a artwork category.
 
 /*------------------------------------------*/
 
@@ -22,14 +22,14 @@ loginCheck();
 if(isset($_GET['id'])) {
 
 	// object oriented style prepare statement
-	// delete statement to remove the article / blog post information fron the database based on the id provided in the url
+	// delete statement to remove the art category information fron the database based on the id provided in the url
 	$stmt = $dbcon->prepare("DELETE FROM category WHERE id = ?");
 	// binds variables to a prepared statement as parameters
 	$stmt->bind_param("i", $id);
 	// executes a prepared query and stores the result as TRUE or FALSE
 	$stmt->execute();
 
-	// Redirect the user to the index dashboard page of the blog / article directory once the deletion is complete.
+	// Redirect the user to the index dashboard page.
 	if($stmt->affected_rows === 1) 
 	{
 		Redirect('admin', false);

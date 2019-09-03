@@ -56,7 +56,7 @@ loginCheck();
 	<li><a href="edit_paintings">Edit Paintings</a></li>
 	<li><a href="edit_drawings">Edit Drawings</a></li>
 	<li><a href="#"><strike>Create Art Category</strike></a></li>
-	<li><a href="#"><strike>Edit Art Categories</strike></a></li>
+	<li><a href="art_category_manage">Edit Art Categories</a></li>
 </ul>
 </div>
 

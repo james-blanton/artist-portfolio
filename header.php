@@ -17,7 +17,10 @@ This IF block is also used in the footer file.
 
 /*------------------------------------------*/
 
+// custom pho functions
 include('functions.php');
+// general-purpose required configuration information
+include('config.php');
 
 session_start();
 ?>
@@ -153,33 +156,39 @@ echo
                 
                 <?php // start display for navigation urls at desktop resolution ?>
                 <ul>
-                    <li>
                     <?php
+                    /*
+                    Get the name and filename of the artwork categories from the database.
+                    */
 
                     if ($current_location == "blog")
                     {
-                        echo '<a href="../painting">Paintings</a>';
+                        include("connect.php");
                     }
                     else {
-                        echo '<a href="painting">Paintings</a>';
+                        include("blog/connect.php");
+                    }
+
+                    $sql = "SELECT catname,filename FROM category_artwork";
+                    $result = mysqli_query($dbcon, $sql);
+
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        $title = $row['catname'];
+                        $filename = $row['filename'];
+                        echo '<li>';
+                        if ($current_location == "blog")
+                        {
+                            echo '<a href="../'.$filename.'">'.$title.'</a>';
+                        }
+                        else {
+                            echo '<a href="'.$filename.'">'.$title.'</a>';
+                        }
+                        echo '</li>';
                     }
                     ?>
-                    </li>
 
                     <li>
-                    <?php
 
-                    if ($current_location == "blog")
-                    {
-                        echo '<a href="../drawing">Drawings</a>';
-                    }
-                    else {
-                        echo '<a href="drawing">Drawings</a>';
-                    }
-                    ?>
-                    </li>
-
-                    <li>
                     <?php
                     if ($current_location == "blog")
                     {
@@ -225,29 +234,41 @@ echo
 		</h1>
 	</div>
 
-    <div class="mobile_nav_bar">
-    <?php
-    if ($current_location == "blog")
-    {
-        echo '<a href="../painting">Painting</a>';
-    }
-    else {
-        echo '<a href="painting">Painting</a>';
-    }
-    ?>
-    </div>
 
-    <div class="mobile_nav_bar">
+
     <?php
+    // database connection file
     if ($current_location == "blog")
     {
-        echo '<a href="../drawing">Drawings</a>';
+        include("connect.php");
     }
-    else {
-        echo '<a href="drawing">Drawings</a>';
+    else 
+    {
+        include("blog/connect.php");
+    }
+    
+    /*
+    Get the name and filename of the artwork categories from the database.
+    */
+
+    $sql = "SELECT catname,filename FROM category_artwork";
+    $result = mysqli_query($dbcon, $sql);
+
+    while ($row = mysqli_fetch_assoc($result)) {
+        $title = $row['catname'];
+        $filename = $row['filename'];
+        echo '<div class="mobile_nav_bar">';
+        if ($current_location == "blog")
+        {
+            echo '<a href="../'.$filename.'">'.$title.'</a>';
+        }
+        else 
+        {
+            echo '<a href="'.$filename.'">'.$title.'</a>';
+        }
+         echo '</div>';
     }
     ?>
-    </div>
 
     <div class="mobile_nav_bar">
     <?php
