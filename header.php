@@ -169,7 +169,7 @@ echo
                         include("blog/connect.php");
                     }
 
-                    $sql = "SELECT catname,filename FROM category_artwork";
+                    $sql = "SELECT catname,filename,header_display FROM category_artwork WHERE header_display = 1";
                     $result = mysqli_query($dbcon, $sql);
 
                     while ($row = mysqli_fetch_assoc($result)) {
@@ -251,7 +251,7 @@ echo
     Get the name and filename of the artwork categories from the database.
     */
 
-    $sql = "SELECT catname,filename FROM category_artwork";
+    $sql = "SELECT catname,filename,header_display FROM category_artwork WHERE header_display = 1";
     $result = mysqli_query($dbcon, $sql);
 
     while ($row = mysqli_fetch_assoc($result)) {

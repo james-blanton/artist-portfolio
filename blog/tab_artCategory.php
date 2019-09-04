@@ -55,6 +55,7 @@ while ($row = mysqli_fetch_assoc($result)) {
 	$id = $row['id'];
 	$title = substr($row['catname'], 0, 10).'.'; // sunstr() function truncates the titles of the art categories if they're longer than 10 characters
 	$description = substr($row['description'], 0, 50).'.'; // sunstr() function truncates the description of the art categories if they're longer than 50 characters
+	$filename=$row['filename'].'.php';
 
 	?>
 
@@ -65,14 +66,14 @@ while ($row = mysqli_fetch_assoc($result)) {
 
 	<td class="desktop_dropdown">
 		<a href="edit_artCategory?id=<?php echo $id;?>">Edit</a> |
-		<a href="del_artCategory?id=<?php echo $id;?>" onclick="return confirm('Are you sure you want to delete this category?')">Delete</a>
+		<a href="del_artCategory?id=<?php echo $id;?>&filename=<?php echo $filename;?>" onclick="return confirm('Are you sure you want to delete this category?')">Delete</a>
 	</td>
 
 	<td class="mobile_dropdown">
 		<select id = "mobile_dropdown" onchange="dropdownSelectionCheck(this)">
 			<option name="selection" value="#">&#xf013;</option>
 		    <option value="edit_artCategory?id=<?php echo $id;?>">Edit</option>
-		    <option value="del_artCategory?id=<?php echo $id;?>">Delete</option>
+		    <option value="del_artCategory?id=<?php echo $id;?>&filename=<?php echo $filename;?>">Delete</option>
 		</select>
 	</td>
 <?php 

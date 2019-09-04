@@ -50,15 +50,16 @@ $error_display = '';
 // check if the form has been submitted for updating the category information
 if(isset($_POST['upd'])) {
     // if the form has been submitted, then store all information needed in to new variables
-    $id = (INT)$_POST['id'];
+    $id = (INT)$_GET['id'];
     $catname = mysqli_real_escape_string($dbcon,$_POST['category_name']);
     $description = mysqli_real_escape_string($dbcon,$_POST['description']);
     $new_filename = mysqli_real_escape_string($dbcon,$_POST['filename']);
+    $header_display = (INT)$_POST['header_display'];
 
     // object oriented style prepared statement to update database row related to appropriate art category
-    $stmt = $dbcon->prepare("UPDATE category_artwork SET catname=?, description=?, filename=? WHERE id=?");
+    $stmt = $dbcon->prepare("UPDATE category_artwork SET catname=?, description=?, filename=?, header_display=? WHERE id=?");
     // binds variables to a prepared statement as parameters
-    $stmt->bind_param('sssi', $catname, $description,$new_filename,$id);
+    $stmt->bind_param('sssii', $catname, $description,$new_filename,$header_display,$id);
     // executes a prepared query and stores the result as TRUE or FALSE
     $status = $stmt->execute();
 
@@ -110,6 +111,12 @@ if(isset($_POST['upd'])) {
 
 <label>Filename</label> (Don't include the extension)
 <input type="text" class="w3-input w3-border" name="filename" value="<?php echo $filename;?>">
+
+<label>Header Display</label><br/>
+<select name="header_display">
+        <option value="1">yes</option>
+        <option value="0">no</option>
+</select>
 
 <br/><br/>
 <input type="submit" class="w3-btn w3-light-grey w3-round" name="upd" value="Submit">
