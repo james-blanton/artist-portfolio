@@ -41,7 +41,7 @@ if(isset($_GET['id'])) {
 		  echo ("Deleted $filename");
 		}
 
-		// redirect the admin
+		// redirect the admin to the admin control panel
 		Redirect('admin', false);
 		exit();
 	}

@@ -15,6 +15,8 @@ Here are some currentlty known issues in the code:
 (c) artwork  categories need to have a character limit for their name
 
 (d) the amount of artwork categories that can be displayed in the header navigation needs to be limited
+
+ ****** (e) there's problems related to the location of the category file within del_artCategory and edit_artCategory realted to the files relation to the document root *******
 EOT;
 
 ?>

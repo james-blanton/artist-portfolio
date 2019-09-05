@@ -272,8 +272,19 @@ FUNCTION display_logo() {
 ?>
 
 <?php
-FUNCTION paginate($rowsperpage, $current_page, $numrows, $total_pages, $page_url)
-{
+FUNCTION paginate($rowsperpage, $current_page, $numrows, $total_pages, $page_url) {
+	/*-------------------------------------------
+	FUNCTION PURPOSE
+
+	Generates pangination links for any database table.
+	$rowsperpage is the number of database entries that the admin wishes to have displayed on each page.
+	$current_page contained the page that the user is currently only while navigation through the pagination. This is obtained from the url via $_GET.
+	$numrows is a count of the total number of rows returned by the database query.
+	$total_pages is the total number of pages to be generated, determines by dividing the total number of database rows returned ($numrows) by the total nunber of entries desired for each page ($rowsperpage):
+	$numrows / $rowsperpage
+
+	-------------------------------------------*/
+
 	if (!isset($_GET['page'])) {$current_page = 1;}
 	else {$current_page = $_GET['page'];}
 
@@ -315,34 +326,42 @@ FUNCTION paginate($rowsperpage, $current_page, $numrows, $total_pages, $page_url
     return $pagination; //return pagination links
 }
 ?>
+
 <?php
-FUNCTION newCategory_include($filename,$type,$category_name){
-$data = <<< EOT
-<?php
+FUNCTION newCategory_include($filename,$type,$category_name) {
 	/*-------------------------------------------
-	FILE PURPOSE
+	FUNCTION PURPOSE
 
-	This file displays all artwork listed in the database that has a category of '".Photography."'.
-	See function.php for the display_artwork() function.
-	The photo_syles.css file contains CSS specific to ".photography.".php
+	Generates a php file for a new artwork category. See the file 'new_artCategory.php' for a further explanation on why I'm doing this.
 
-	/*------------------------------------------*/
-?>
-	<?php include('header.php'); ?>
+	-------------------------------------------*/
 
-	<link rel='stylesheet' href='styles/photo_styles.css'>
+	$data = <<< EOT
+	<?php
+		/*-------------------------------------------
+		FILE PURPOSE
 
-	<div id='home' class='tab-pane fade in active' class='float_fullHeight'>
-	<?php $type = '".Photography."'; display_artwork($type); ?>
-	</div>
-		      
-	</div>
-	</div>
+		This file displays all artwork listed in the database that has a category of '".Photography."'.
+		See function.php for the display_artwork() function.
+		The photo_syles.css file contains CSS specific to ".photography.".php
 
-	<?php include('footer.php'); ?>
+		/*------------------------------------------*/
+	?>
+		<?php include('header.php'); ?>
 
-EOT;
+		<link rel='stylesheet' href='styles/photo_styles.css'>
 
-return $data;
+		<div id='home' class='tab-pane fade in active' class='float_fullHeight'>
+		<?php $type = '".Photography."'; display_artwork($type); ?>
+		</div>
+			      
+		</div>
+		</div>
+
+		<?php include('footer.php'); ?>
+
+	EOT;
+
+	return $data;
 }
 ?>
