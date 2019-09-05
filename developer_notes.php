@@ -12,7 +12,9 @@ Here are some currentlty known issues in the code:
 
 (b) 'del_artwork.php' contains an error display message that the user will never see if an error does infact occur. This file is used to delete artworks through the admin dashboard.
 
-(c) portfolio owner needs the option to edit blog post categories.
+(c) artwork  categories need to have a character limit for their name
+
+(d) the amount of artwork categories that can be displayed in the header navigation needs to be limited
 EOT;
 
 ?>

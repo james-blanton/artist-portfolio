@@ -315,3 +315,34 @@ FUNCTION paginate($rowsperpage, $current_page, $numrows, $total_pages, $page_url
     return $pagination; //return pagination links
 }
 ?>
+<?php
+FUNCTION newCategory_include($filename,$type,$category_name){
+$data = <<< EOT
+<?php
+	/*-------------------------------------------
+	FILE PURPOSE
+
+	This file displays all artwork listed in the database that has a category of '".Photography."'.
+	See function.php for the display_artwork() function.
+	The photo_syles.css file contains CSS specific to ".photography.".php
+
+	/*------------------------------------------*/
+?>
+	<?php include('header.php'); ?>
+
+	<link rel='stylesheet' href='styles/photo_styles.css'>
+
+	<div id='home' class='tab-pane fade in active' class='float_fullHeight'>
+	<?php $type = '".Photography."'; display_artwork($type); ?>
+	</div>
+		      
+	</div>
+	</div>
+
+	<?php include('footer.php'); ?>
+
+EOT;
+
+return $data;
+}
+?>

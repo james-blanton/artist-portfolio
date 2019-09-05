@@ -65,33 +65,8 @@ if(isset($_POST['submit'])) {
 		$my_file = $filename.'.php';
 		$handle = fopen($_SERVER['DOCUMENT_ROOT'].'/'.$portfolio_directory.'/'.$my_file, 'w') or die('Cannot open file:  '.$my_file);
 		$type='$type';
-		$data = 
-		"
-		<?php 
-		/*-------------------------------------------
-		FILE PURPOSE
-
-		This file displays all artwork listed in the database that has a category of '".$category_name."'.
-		See function.php for the display_artwork() function.
-		The photo_syles.css file contains CSS specific to ".$filename.".php
-
-		/*------------------------------------------*/
-
-		include('header.php'); 
-
-		?>
-
-		<link rel='stylesheet' href='styles/photo_styles.css'>
-
-		<div id='home' class='tab-pane fade in active' class='float_fullHeight'>
-		  <?php $type = '".$category_name."'; display_artwork($type); ?>
-		</div>
-		      
-		</div>
-		</div>
-
-		<?php include('footer.php'); ?>
-		";
+		$function_data = newCategory_include($filename,$type,$category_name);
+		$data = $function_data;
 
 		fwrite($handle, $data);
 	}
