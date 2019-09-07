@@ -21,9 +21,21 @@ loginCheck();
 
 <a href="admin"> << return to Admin Dashboard</a><br/>
 
+<br/>
+Categories have a  character limit of 20 characters.<br/>
+You may only have 5  categories.<br/>
+
 <?php
+$sql = "SELECT id FROM category_artwork";
+$result = mysqli_query($dbcon, $sql);
+$category_count = mysqli_num_rows($result);
+echo '<i>Current category count</i>: ' . $category_count;
+
+// limit the amount of artwork categories to 5 or less.
+if($category_count <= 5){
 // check if the form has been submitted yet
 if(isset($_POST['submit'])) {
+
 	// place data obtained from the form in to more usable variables
 	$category_name = mysqli_real_escape_string($dbcon, $_POST['catname']);
 	$filename = mysqli_real_escape_string($dbcon, $_POST['catname']);
@@ -106,7 +118,7 @@ else {
 <form class="w3-container" action="<?php htmlspecialchars($_SERVER['PHP_SELF']);?>" method="POST">
 <label>Category Name</label>
 
-<input type="text" class="w3-input w3-border" name="catname" required>
+<input type="text" class="w3-input w3-border" name="catname" maxlength="20" required>
 <br/>
 
 <label>Description</label>
@@ -125,7 +137,14 @@ else {
 </form>
 		
 <?php
-} 
+}
+
+}
+else
+{
+echo '<br/><br/>You have reached the limit for artwork categories.';
+}
+
 include("footer.php");
 ?>
     

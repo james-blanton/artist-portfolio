@@ -111,7 +111,7 @@ if(isset($_POST['upd'])) {
 <form action="" method="POST" class="w3-container">
 <input type="hidden" name="id" value="<?php echo $id;?>">
 <label>Title</label>
-<input type="text" class="w3-input w3-border" name="category_name" value="<?php echo $category_title;?>">
+<input type="text" class="w3-input w3-border" name="category_name" maxlength="15" value="<?php echo $category_title;?>">
 
 <label>Description</label>
 <textarea id = "text_area" class="w3-input w3-border large_textbox" name="description" >
