@@ -22,7 +22,7 @@ loginCheck();
 <a href="admin"> << return to Admin Dashboard</a><br/>
 
 <br/>
-Categories have a  character limit of 20 characters.<br/>
+Categories have a  character limit of 20.<br/>
 You may only have 5  categories.<br/>
 
 <?php
