@@ -20,7 +20,6 @@ Please see the new_artCategory file for a further explanation.
 */
 $root_directory = false;
 
-
 // Set the name of the directory that the portfolio is contained within if it is not located in the root directory.
 $portfolio_directory = 'artist-portfolio';
 

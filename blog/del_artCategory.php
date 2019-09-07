@@ -34,12 +34,31 @@ if(isset($_GET['id'])) {
 	// Redirect the user to the index dashboard page if the delete was successful.
 	if($stmt->affected_rows === 1) 
 	{
-		// delete the category file from the portfolio root directory
-		if (!unlink($_SERVER['DOCUMENT_ROOT'].'/'.$portfolio_directory.'/'.$filename)) {
-		  echo ("Error deleting $filename");
-		} else {
-		  echo ("Deleted $filename");
+		/*
+		The root directory variable is also set in config.php.
+		As an example, if you ran this portfolio an a local XAMPP server and you placed the files within xampp > htdocs > artist-portfolio,
+		then you would need to set the $root_directory variable to 'false' because the 'htdocs' folder is the root directory and the 'artist-portfolio' folder is nested within it.
+		In this example, the portfolio would need to be accessed by appending the localhost url with 'artist-portfolio' like so:
+		https://localhost/artist-portfolio/index
+		*/
+		if($root_directory == false){
+			// delete the category file from the nested directory
+			if (!unlink($_SERVER['DOCUMENT_ROOT'].'/'.$portfolio_directory.'/'.$filename)) {
+			  echo ("Error deleting $filename");
+			} else {
+			  echo ("Deleted $filename");
+			}
+		} else
+		{
+			// delete the category file from the portfolio root directory
+			if (!unlink($_SERVER['DOCUMENT_ROOT'].'/'.$filename)) {
+			  echo ("Error deleting $filename");
+			} else {
+			  echo ("Deleted $filename");
+			}
 		}
+
+
 
 		// redirect the admin to the admin control panel
 		Redirect('admin', false);

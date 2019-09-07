@@ -64,7 +64,7 @@ if(isset($_POST['submit'])) {
 		The file is created in the root directory of the portfolio. The admin must specificy the  root directory name within config.php (found in the root directory).
 		The code that is included matches the painting.php and drawing.php files with the name of the category being inserted appropriately in to the file via the 'catname' field found below. 
 
-		The root directory variable is also s et in config.php.
+		The root directory variable is also set in config.php.
 		As an example, if you ran this portfolio an a local XAMPP server and you placed the files within xampp > htdocs > artist-portfolio,
 		then you would need to set the $root_directory variable to 'false' because the 'htdocs' folder is the root directory and the 'artist-portfolio' folder is nested within it.
 		In this example, the portfolio would need to be accessed by appending the localhost url with 'artist-portfolio' like so:

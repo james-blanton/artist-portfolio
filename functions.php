@@ -337,31 +337,32 @@ FUNCTION newCategory_include($filename,$type,$category_name) {
 	-------------------------------------------*/
 
 	$data = <<< EOT
-	<?php
-		/*-------------------------------------------
-		FILE PURPOSE
+<?php
+/*-------------------------------------------
+FILE PURPOSE
 
-		This file displays all artwork listed in the database that has a category of '".Photography."'.
-		See function.php for the display_artwork() function.
-		The photo_syles.css file contains CSS specific to ".photography.".php
+This file displays all artwork listed in the database that has a category of $category_name.
 
-		/*------------------------------------------*/
-	?>
-		<?php include('header.php'); ?>
+See function.php for the display_artwork() function.
+The photo_syles.css file contains CSS specific to $category_name.php
 
-		<link rel='stylesheet' href='styles/photo_styles.css'>
+/*------------------------------------------*/
+?>
+<?php include('header.php'); ?>
 
-		<div id='home' class='tab-pane fade in active' class='float_fullHeight'>
-		<?php $type = '".Photography."'; display_artwork($type); ?>
-		</div>
+<link rel='stylesheet' href='styles/photo_styles.css'>
+
+<div id='home' class='tab-pane fade in active' class='float_fullHeight'>
+<?php $type = '$category_name'; display_artwork($type); ?>
+</div>
 			      
-		</div>
-		</div>
+</div>
+</div>
 
-		<?php include('footer.php'); ?>
+<?php include('footer.php'); ?>
 
-	EOT;
+EOT;
 
-	return $data;
+return $data;
 }
 ?>

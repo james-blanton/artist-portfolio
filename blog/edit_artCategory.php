@@ -69,7 +69,15 @@ if(isset($_POST['upd'])) {
     */
 
     // get the directory that the art gallery file is located in
-    $directory = $_SERVER['DOCUMENT_ROOT'].'/'.$portfolio_directory.'/';
+    // config.php sets if the portfolio is located in the root directed or a nested directory
+    if($root_directory == false){
+        //
+        $directory = $_SERVER['DOCUMENT_ROOT'].'/'.$portfolio_directory.'/';
+    } else
+    {
+        // delete the category file from the portfolio root directory
+        $directory = $_SERVER['DOCUMENT_ROOT'].'/';
+    }
     
     // set variables for the current name of the file and for the renamed file
     $new_filename=$new_filename.'.php';
