@@ -44,21 +44,23 @@ if(isset($_GET['id'])) {
 		if($root_directory == false){
 			// delete the category file from the nested directory
 			if (!unlink($_SERVER['DOCUMENT_ROOT'].'/'.$portfolio_directory.'/'.$filename)) {
-			  echo ("Error deleting $filename");
+				Redirect('art_category_manage?e=error', false);
+				exit();
 			} else {
-			  echo ("Deleted $filename");
+			  	Redirect('art_category_manage?e=deleted', false);
+				exit();
 			}
 		} else
 		{
 			// delete the category file from the portfolio root directory
 			if (!unlink($_SERVER['DOCUMENT_ROOT'].'/'.$filename)) {
-			  echo ("Error deleting $filename");
+				Redirect('art_category_manage?e=error', false);
+				exit();
 			} else {
-			  echo ("Deleted $filename");
+			  	Redirect('art_category_manage?e=deleted', false);
+				exit();
 			}
 		}
-
-
 
 		// redirect the admin to the admin control panel
 		Redirect('admin', false);

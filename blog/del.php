@@ -35,15 +35,15 @@ if(isset($_GET['id'])) {
 	// executes a prepared query and stores the result as TRUE or FALSE
 	$stmt->execute();
 
-	// Redirect the user to the index dashboard page of the blog / article directory once the deletion is complete.
+	// 
 	if($stmt->affected_rows === 1) 
 	{
-		Redirect('admin', false);
+		Redirect('edit_articles?e=deleted', false);
 		exit();
 	}
 	else {
-		// This error display needs to be improved. Right now I don't have a set location for where this error would appear.
-		echo "Failed to delete.";
+		Redirect('edit_articles?e=error', false);
+		exit();
 	}
 
 }

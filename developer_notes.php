@@ -7,10 +7,7 @@ relatively usable for someone who had very little experience with writing code f
 I am a novice programmer, so this portfolio package is not without flaws.
 
 Here are some currentlty known issues in the code:
-
-(a) 'del.php' contains an error display message that the user will never see if an error does infact occur. This file is used to delete blog posts through the admin dashboard.
-
-(b) 'del_artwork.php' contains an error display message that the user will never see if an error does infact occur. This file is used to delete artworks through the admin dashboard.
+None known currently.
 
 EOT;
 

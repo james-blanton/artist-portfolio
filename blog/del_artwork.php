@@ -51,8 +51,6 @@ if(isset($_GET['id'])) {
 	$stmt->execute();
 	}
 
-
-
 	//
 
 	// Object oriented style prepare statement to determine the file name for the artwork that has this unique ID in the database.
@@ -86,12 +84,12 @@ if(isset($_GET['id'])) {
 
 			// If the deletion of the database row was successful, then redirect the user back to the admin dashboard.
 			if($result) {
-				Redirect('admin', false);
+				Redirect('admin?e=deleted', false);
 				exit();
 			}
 			else {
-				// This error display needs to be improved. Right now I don't have a set location for where this error would appear.
-				echo "Failed to delete.";
+				Redirect('admin?e=error', false);
+				exit();
 			}
 		}
 

@@ -20,6 +20,21 @@ loginCheck();
 
 <a href="admin"><< return to Admin Dashboard</a><br/><br/>
 
+<?php
+$error_display = "";
+// error display for deleting blog posts / articles
+if(isset($_GET['e'])){
+	if($_GET['e']=='deleted'){
+		$error_display = "Art category deleted successfully.";
+	} elseif($_GET['e']=='error') {
+		$error_display = "Error deleting entry. Database entry more than likely no longer exists.";
+	}
+} else { $error_display == ""; }
+
+echo $error_display;
+?>
+
+
 <h3>ART CATEGORY MANAGMENT</h3>
 <?php include("tab_artCategory.php"); ?>
 </div>

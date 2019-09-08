@@ -27,6 +27,20 @@ loginCheck();
 
 <div class="w3-container">
 
+<?php
+$error_display = "";
+// error display for deleting blog posts / articles
+if(isset($_GET['e'])){
+	if($_GET['e']=='deleted'){
+		$error_display = "Content deleted successfully.";
+	} elseif($_GET['e']=='error') {
+		$error_display = "Error deleting entry. Database entry more than likely no longer exists.";
+	}
+} else { $error_display == ""; }
+
+echo $error_display.'<br/><br/>';
+?>
+
 <p>Welcome <?php echo $_SESSION['username']; ?></p>
 <a href="logout">Logout</a>
 <hr class="dotted">
