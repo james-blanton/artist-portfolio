@@ -7,9 +7,9 @@ relatively usable for someone who had very little experience with writing code f
 I am a novice programmer, so this portfolio package is not without flaws.
 
 Here are some currentlty known issues in the code:
-None known currently.
 
-Some notes need to be added to the forgot_pass.php and login.php file though.
+- Some notes need to be added to the forgot_pass.php and login.php file though.
+- On edit_contact.php the admin needs to be able to edit their security question and answer.
 
 EOT;
 
