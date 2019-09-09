@@ -24,12 +24,12 @@ $dbpass = ""; // password for user given database access
 
 /*------------------------------------------*/
 $dbhost = "localhost"; // servername
-$dbuser = "root"; // username for user given database access
-$dbpass = ""; // password for user given database access
+$dbuser = "chblanton"; // username for user given database access
+$dbpass = "J!anie11841"; // password for user given database access
 
 $dbcon = mysqli_connect($dbhost, $dbuser, $dbpass) or die("Connect failed. Please contact the portfolio admin at ...");
 
-$dbname= "marya";
+$dbname= "artist-portfolio";
 mysqli_select_db($dbcon,$dbname);
 
 ?> 
