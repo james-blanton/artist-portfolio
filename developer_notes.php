@@ -9,6 +9,8 @@ I am a novice programmer, so this portfolio package is not without flaws.
 Here are some currentlty known issues in the code:
 None known currently.
 
+Some notes need to be added to the forgot_pass.php and login.php file though.
+
 EOT;
 
 ?>
