@@ -129,10 +129,10 @@ echo
                             if ($current_location == "blog"){$logo ='../'.display_logo();} else {$logo=display_logo();}
                                 if ($current_location == "blog")
                                 {
-                                    echo '<a href="../index"><img style="float:left"; src="'.$logo.' ?>"></a>';
+                                    echo '<a href="../index"><img style="float:left"; src="'.$logo.'"></a>';
                                 }
                                 else {
-                                    echo '<a href="index"><img style="float:left"; src="'.$logo.' ?>"></a>';
+                                    echo '<a href="index"><img style="float:left"; src="'.$logo.'"></a>';
                                 }
                             
                             ?>
