@@ -29,6 +29,12 @@ $owner_firstName = populate_portfolio_info($data);
 $data = 'owner_lastName';
 $owner_lastName = populate_portfolio_info($data);
 
+$data = 'security_question';
+$security_question = populate_user_question($data);
+
+$data = 'security_answer';
+$security_answer = populate_user_answer($data);
+
 // initialize  a variable for displaying success / errors messages to the user
 $error_display = '';
 
@@ -40,6 +46,8 @@ if(isset($_POST['upd'])) {
 	$owner_email = $_POST['owner_email'];
 	$owner_firstName = $_POST['owner_firstName'];
 	$owner_lastName = $_POST['owner_lastName'];
+	$security_question = $_POST['security_question'];
+	$security_answer = $_POST['security_answer'];
 		
 	$data = 'biography';
 	$data2 = $biography;
@@ -64,6 +72,14 @@ if(isset($_POST['upd'])) {
 	$data = 'owner_lastName';
 	$data2 = $owner_lastName;
 	update_portfolio_info($data,$data2);
+
+	$data = 'security_question';
+	$data2 = $security_question;
+	update_user_info($data,$data2);
+
+	$data = 'security_answer';
+	$data2 = $security_answer;
+	update_user_info($data,$data2);
 
 }
 
@@ -124,6 +140,20 @@ Select color for top bar of portfolio, url underline and image hover box shadow.
 
 <label>Admin Last Name</label><br/>
 <input type="text" value="<?php echo $owner_lastName; ?>" name="owner_lastName">
+<br/><br/>
+
+<label>Password Security Question</label><br/>
+<select id="security_question" name="security_question">
+<option name="security_question" value="<?php echo $security_question; ?>"><?php echo $security_question; ?></option>
+<option name="security_question" value="Name of your first pet?">Name of your first pet?</option>
+<option name="security_question" value="Mother's middle name?">Mother's middle name?</option>
+</select>
+<br/><br/>
+
+<label>Security Question Answer</label><br/>
+<input type="text" value="<?php echo $security_answer; ?>" name="security_answer">
+<br/><br/>
+
 <br/><br/>
 
 <input type="submit" class="w3-btn w3-light-grey w3-round" name="upd" value="Submit">

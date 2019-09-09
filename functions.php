@@ -198,6 +198,60 @@ FUNCTION populate_portfolio_info($data) {
 ?>
 
 <?php
+FUNCTION populate_user_question($data) {
+	/*-------------------------------------------
+	FUNCTION PURPOSE
+
+	NEEDS NOTES
+	
+	-------------------------------------------*/
+
+	// database connection file
+	include("connect.php");
+
+	// check logged in user
+	$user = $_SESSION['username'];
+	// get the info for the general info row
+	$sql = "SELECT security_question FROM admin WHERE username = '".$user."'";
+	// execute the query
+	$result = mysqli_query($dbcon, $sql);
+
+	// store the information in a variable
+	$row = mysqli_fetch_assoc($result);
+	$data = $row['security_question'];
+
+	return $data;
+}
+?>
+
+<?php
+FUNCTION populate_user_answer($data) {
+	/*-------------------------------------------
+	FUNCTION PURPOSE
+
+	NEEDS NOTES
+	
+	-------------------------------------------*/
+
+	// database connection file
+	include("connect.php");
+
+	// check logged in user
+	$user = $_SESSION['username'];
+	// get the info for the general info row
+	$sql = "SELECT security_answer FROM admin WHERE username = '".$user."'";
+	// execute the query
+	$result = mysqli_query($dbcon, $sql);
+
+	// store the information in a variable
+	$row = mysqli_fetch_assoc($result);
+	$data = $row['security_answer'];
+
+	return $data;
+}
+?>
+
+<?php
 FUNCTION update_portfolio_info($data,$data2) {
 	/*-------------------------------------------
 	FUNCTION PURPOSE
@@ -237,6 +291,54 @@ FUNCTION update_portfolio_info($data,$data2) {
 		// if a result is not returned from the query, then redirect the user to the index of the portfolio
 			if(mysqli_stmt_num_rows($stmt)==0) {
 				Redirect('../contact', false);
+				exit();
+			} 
+		}
+
+	}
+}
+
+?>
+
+<?php
+FUNCTION update_user_info($data,$data2) {
+	/*-------------------------------------------
+	FUNCTION PURPOSE
+	
+	
+	-------------------------------------------*/
+
+	// database connection file
+	include("connect.php");
+	// checked logged in user 
+	$user = $_SESSION['username'];
+	// query statement to update database row related to appropriate contact / biography details
+	$stmt = $dbcon->prepare("UPDATE admin SET $data = ? WHERE username='".$user."'");
+	// binds variables to a prepared statement as parameters
+	$stmt->bind_param('s', $data2);
+	// executes a prepared query and stores the result as TRUE or FALSE
+	$status = $stmt->execute();
+
+	// check if the query executed successfully or not
+	// display a success or fail message to the user 
+	if ($status === false) {
+		$error_display = "<br/>Failed to edit ".$data."<br/>";
+	} else {
+		$error_display = $data." edited successfully.<br/>";
+		$sql = "SELECT * FROM general_info ";
+
+		// prepare statement for security
+		if ($stmt = mysqli_prepare($dbcon, $sql)) {
+
+		// executes a prepared query
+		mysqli_stmt_execute($stmt);
+
+		// transfers a result set from a prepared statement
+		mysqli_stmt_store_result($stmt);
+			 
+		// if a result is not returned from the query, then redirect the user to the index of the portfolio
+			if(mysqli_stmt_num_rows($stmt)==0) {
+				Redirect('../edit_contact', false);
 				exit();
 			} 
 		}
