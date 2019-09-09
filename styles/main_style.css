@@ -136,6 +136,26 @@ hr.dotted {
     text-transform: uppercase;
 }
 
+/* 
+Used to style the first option in a dropdown menu to a lighter gray color.
+This option is ypically displays a value already stored in the database.
+*/
+select{
+    color: #6b6b6b;
+}
+
+option:first-child
+{
+    color: #6b6b6b;
+    font-style: italic;
+}
+
+option:not(:checked) { 
+    color:black;
+    text-transform: lowercase;
+}
+
+
 .desktop_dropdown {
     visibility: visible;
     display:inline-block;

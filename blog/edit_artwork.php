@@ -98,7 +98,7 @@ $result = mysqli_query($dbcon, $sql);
 
 if(mysqli_query($dbcon, $sql)) {
 	$select= '<select id="category" name="category">';
-	$select.='<option id="category" name="category" style="text-transform:uppercase;" value="'.$category.'">'.$category.'</option>';
+	$select.='<option id="category" name="category" class="dropdown-uppercase" value="'.$category.'">'.$category.'</option>';
 	while($row=mysqli_fetch_array($result)){
 	      $select.='<option name="category" value="'.$row['catname'].'">'.$row['catname'].'</option>';
 	  }

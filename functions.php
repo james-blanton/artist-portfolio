@@ -198,60 +198,6 @@ FUNCTION populate_portfolio_info($data) {
 ?>
 
 <?php
-FUNCTION populate_user_question($data) {
-	/*-------------------------------------------
-	FUNCTION PURPOSE
-
-	NEEDS NOTES
-	
-	-------------------------------------------*/
-
-	// database connection file
-	include("connect.php");
-
-	// check logged in user
-	$user = $_SESSION['username'];
-	// get the info for the general info row
-	$sql = "SELECT security_question FROM admin WHERE username = '".$user."'";
-	// execute the query
-	$result = mysqli_query($dbcon, $sql);
-
-	// store the information in a variable
-	$row = mysqli_fetch_assoc($result);
-	$data = $row['security_question'];
-
-	return $data;
-}
-?>
-
-<?php
-FUNCTION populate_user_answer($data) {
-	/*-------------------------------------------
-	FUNCTION PURPOSE
-
-	NEEDS NOTES
-	
-	-------------------------------------------*/
-
-	// database connection file
-	include("connect.php");
-
-	// check logged in user
-	$user = $_SESSION['username'];
-	// get the info for the general info row
-	$sql = "SELECT security_answer FROM admin WHERE username = '".$user."'";
-	// execute the query
-	$result = mysqli_query($dbcon, $sql);
-
-	// store the information in a variable
-	$row = mysqli_fetch_assoc($result);
-	$data = $row['security_answer'];
-
-	return $data;
-}
-?>
-
-<?php
 FUNCTION update_portfolio_info($data,$data2) {
 	/*-------------------------------------------
 	FUNCTION PURPOSE
@@ -288,9 +234,11 @@ FUNCTION update_portfolio_info($data,$data2) {
 		// transfers a result set from a prepared statement
 		mysqli_stmt_store_result($stmt);
 			 
-		// if a result is not returned from the query, then redirect the user to the index of the portfolio
+
+		// if a result is not returned from the query, then redirect the user to edit_contact.php file
+		// aka 'Edit 'General Portfolio Info'
 			if(mysqli_stmt_num_rows($stmt)==0) {
-				Redirect('../contact', false);
+				Redirect('../edit_contact', false);
 				exit();
 			} 
 		}
@@ -301,10 +249,40 @@ FUNCTION update_portfolio_info($data,$data2) {
 ?>
 
 <?php
+FUNCTION populate_user_info($data) {
+	/*-------------------------------------------
+	FUNCTION PURPOSE
+
+	Used to display information related to the portfolio admin via the edit_contact.php file.
+	This data is tied to the admin table, but everything else in edit_contact is tied to the 'general_info' table.
+	
+	-------------------------------------------*/
+
+	// database connection file
+	include("connect.php");
+
+	// check logged in user
+	$user = $_SESSION['username'];
+	// get the info for the general info row
+	$sql = "SELECT $data FROM admin WHERE username = '".$user."'";
+	// execute the query
+	$result = mysqli_query($dbcon, $sql);
+
+	// store the information in a variable
+	$row = mysqli_fetch_assoc($result);
+	$data = $row[$data];
+
+	return $data;
+}
+?>
+
+<?php
 FUNCTION update_user_info($data,$data2) {
 	/*-------------------------------------------
 	FUNCTION PURPOSE
-	
+
+	Used to update information related to the portfolio admin via the edit_contact.php file.
+	This data is tied to the admin table, but everything else in edit_contact is tied to the 'general_info' table.
 	
 	-------------------------------------------*/
 
@@ -312,7 +290,7 @@ FUNCTION update_user_info($data,$data2) {
 	include("connect.php");
 	// checked logged in user 
 	$user = $_SESSION['username'];
-	// query statement to update database row related to appropriate contact / biography details
+	// query statement to update database row related to the administrators information
 	$stmt = $dbcon->prepare("UPDATE admin SET $data = ? WHERE username='".$user."'");
 	// binds variables to a prepared statement as parameters
 	$stmt->bind_param('s', $data2);
@@ -336,7 +314,8 @@ FUNCTION update_user_info($data,$data2) {
 		// transfers a result set from a prepared statement
 		mysqli_stmt_store_result($stmt);
 			 
-		// if a result is not returned from the query, then redirect the user to the index of the portfolio
+		// if a result is not returned from the query, then redirect the user to edit_contact.php file
+		// aka 'Edit 'General Portfolio Info'
 			if(mysqli_stmt_num_rows($stmt)==0) {
 				Redirect('../edit_contact', false);
 				exit();

@@ -30,10 +30,10 @@ $data = 'owner_lastName';
 $owner_lastName = populate_portfolio_info($data);
 
 $data = 'security_question';
-$security_question = populate_user_question($data);
+$security_question = populate_user_info($data);
 
 $data = 'security_answer';
-$security_answer = populate_user_answer($data);
+$security_answer = populate_user_info($data);
 
 // initialize  a variable for displaying success / errors messages to the user
 $error_display = '';
@@ -144,7 +144,7 @@ Select color for top bar of portfolio, url underline and image hover box shadow.
 
 <label>Password Security Question</label><br/>
 <select id="security_question" name="security_question">
-<option name="security_question" value="<?php echo $security_question; ?>"><?php echo $security_question; ?></option>
+<option name="security_question" value="<?php echo $security_question; ?>" class="dropdown-uppercase"><?php echo $security_question; ?></option>
 <option name="security_question" value="Name of your first pet?">Name of your first pet?</option>
 <option name="security_question" value="Mother's middle name?">Mother's middle name?</option>
 </select>

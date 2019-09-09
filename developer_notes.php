@@ -8,8 +8,9 @@ I am a novice programmer, so this portfolio package is not without flaws.
 
 Here are some currentlty known issues in the code:
 
-- Some notes need to be added to the forgot_pass.php and login.php file though.
-- On edit_contact.php the admin needs to be able to edit their security question and answer.
+- Some notes need to be added to the forgot_pass.php, login.php files.
+
+- Give the ability to change the existing password to something of their choosing. 
 
 EOT;
 
