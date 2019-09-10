@@ -80,8 +80,8 @@ if(isset($_POST['forgot'])){
 		}
 	}
 } else {
-	$message = 'Enter your username and click "Show security question". <br/>
-			Fill in your username once more along with the answer to your security question and then click "Forgot password".<br/>
+	$message = 'Enter your username and click "Show security question". <br/><br/>
+			Fill in your username once more along with the answer to your security question and then click "Forgot password".<br/><br/>
 			If the answer to your security question was correct, then you will be emailed a new password.<br/><br/>';
 
 ?>
@@ -116,7 +116,7 @@ if(isset($_POST['forgot'])){
 		<label>Security Question Answer</label>
 		<input type="text" name ="answer" class="w3-input w3-border">
 
-		<input type="submit" name ="forgot" value="Forgot Password" class="w3-btn w3-light-grey">
+		<input type="submit" name ="forgot" value="Forgot Password" class="w3-btn w3-light-grey"><br/><br/>
 		<input type="submit" name ="question" value="Show Security Question" class="w3-btn w3-light-grey">
 	</form>
 
