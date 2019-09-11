@@ -31,17 +31,17 @@ if (isset($_GET["key"]) && ($_GET["key"]!=="") && isset($_GET["email"]) && isset
 		// executes a prepared query and stores the result as TRUE or FALSE
 		$status = $stmt->execute();
 
-		// send email with new password
-		// send the email to confirm the password reset to the portfolio admin
-		// the body of the email
+		// change user feedback message
 		$msg = "Your new password reset was a success.";
 
-		// TEST START
+		// Send the email to confirm the password reset to the portfolio admin
+		// Email headers
 		$to = $email; 
 		$from = $email; 
 		$fromName = 'Portfolio Admin Toolkit'; 
 		$subject = "Portfolio Password Reset"; 
-						 
+		
+		// Email body	 
 		$htmlContent = ' 
 			<html> 
 			<head> 
@@ -76,7 +76,6 @@ if (isset($_GET["key"]) && ($_GET["key"]!=="") && isset($_GET["email"]) && isset
 		}else{ 
 		   echo 'Email sending failed.'; 
 		}
-		// TEST END
 
 		$empty = '';
 		// object oriented style prepared statement to update database row related to appropriate art category

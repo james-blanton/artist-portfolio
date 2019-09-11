@@ -61,13 +61,14 @@ if(isset($_POST['forgot'])) {
 
 						$reset_url = 'reset_password.php?key='.$generated_key.'&email='.$email.'&newpass='.$new_pass.'&action=reset';
 
-						// send the email to confirm the password reset to the portfolio admin
+						// Send the email to confirm the password reset to the portfolio admin
+						// Email headers
 						$to = $email; 
 						$from = $email; 
 						$fromName = 'Portfolio Admin Toolkit'; 
-						 
 						$subject = "Portfolio Password Reset"; 
-						 
+						
+						// Email body
 						$htmlContent = ' 
 						    <html> 
 						    <head> 
