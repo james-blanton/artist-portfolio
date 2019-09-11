@@ -59,13 +59,49 @@ if(isset($_POST['forgot'])) {
 						// executes a prepared query and stores the result as TRUE or FALSE
 						$status = $stmt->execute();
 
-						$url = 'reset_password.php?key='.$generated_key.'&email='.$email.'&newpass='.$new_pass.'&action=reset';
+						$reset_url = 'reset_password.php?key='.$generated_key.'&email='.$email.'&newpass='.$new_pass.'&action=reset';
+
 						// send the email to confirm the password reset to the portfolio admin
-						// the body of the email
-						$msg = 
-						"It looks like you requested a password reset for your portfolio.\nCopy this url in to your address bar following your portfolio blog directory in order to finish the password reset ->\n".$url."\n\nEXAMPLE URL: example-site.com/blog/reset_password.php?key=".$generated_key."&email=".$email."&newpass=".$new_pass."&action=reset";
-						// send email
-						mail($email,"Password Reset",$msg);
+						$to = $email; 
+						$from = $email; 
+						$fromName = 'Portfolio Admin Toolkit'; 
+						 
+						$subject = "PortfolioPassword Reset"; 
+						 
+						$htmlContent = ' 
+						    <html> 
+						    <head> 
+						        <title>Portfolio Toolkit</title> 
+						    </head> 
+						    <body> 
+						        <h1>Portfolio Toolkit</h1> 
+						        <table cellspacing="0" style="border: 2px dashed #FB4314; width: 100%; padding: 10px; float: left;"> 
+						            <tr> 
+						                <th>Name:</th><td>Portfolio Reset</td> 
+						            </tr> 
+						            <tr style="background-color: #e0e0e0;"> 
+						                <th>Email:</th><td>'.$email.'</td> 
+						            </tr> 
+						            <tr> 
+						                <th>Message:</th><td style="padding-left: 10px;">It looks like you requested a password reset for your portfolio. Copy this url in to your address bar following your portfolio blog directory in order to finish the password reset: <a href="'.$reset_url.'">'.$reset_url.'</a></td> 
+						            </tr> 
+						        </table> 
+						    </body> 
+						    </html>'; 
+						 
+						// Set content-type header for sending HTML email 
+						$headers = "MIME-Version: 1.0" . "\r\n"; 
+						$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n"; 
+						 
+						// Additional headers 
+						$headers .= 'From: '.$fromName.'<'.$from.'>' . "\r\n"; 
+						 
+						// Send email 
+						if(mail($to, $subject, $htmlContent, $headers)){ 
+						    echo 'Email has sent successfully.'; 
+						}else{ 
+						   echo 'Email sending failed.'; 
+						}
 
 						// redirect the user to the login page 
 						// pass the 'pending' status via the url in order to display a feedback message to the  use letting them know that the password reset is pending

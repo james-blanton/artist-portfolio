@@ -10,8 +10,6 @@ Here are some currentlty known issues in the code:
 
 - Some notes need to be added to login, forgot_pass, & reset_password.
 
-- The password reset email is sort of ugly. The first url won't display correctly in a email.
-
 EOT;
 
 ?>

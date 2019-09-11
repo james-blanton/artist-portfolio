@@ -36,8 +36,47 @@ if (isset($_GET["key"]) && ($_GET["key"]!=="") && isset($_GET["email"]) && isset
 		// the body of the email
 		$msg = "Your new password reset was a success.";
 
-		// send email
-		mail($email,"Password Reset",$msg);
+		// TEST START
+		$to = $email; 
+		$from = $email; 
+		$fromName = 'Portfolio Admin Toolkit'; 
+		$subject = "Portfolio Password Reset"; 
+						 
+		$htmlContent = ' 
+			<html> 
+			<head> 
+				<title>Portfolio Toolkit</title> 
+			</head> 
+			<body> 
+				<h1>Portfolio Toolkit</h1> 
+				<table cellspacing="0" style="border: 2px dashed #FB4314; width: 100%; padding: 10px; float: left;"> 
+				<tr> 
+					<th>Name:</th><td>Portfolio Password Reset</td> 
+				</tr> 
+				<tr style="background-color: #e0e0e0;"> 
+					<th>Email:</th><td>'.$email.'</td> 
+				</tr> 
+				<tr> 
+					<th>Message:</th><td style="padding-left: 10px;">Password reset was a success! You may now log in!</td> 
+				</tr> 
+				</table> 
+			</body> 
+			</html>'; 
+		 
+		// Set content-type header for sending HTML email 
+		$headers = "MIME-Version: 1.0" . "\r\n"; 
+		$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n"; 
+		 
+		// Additional headers 
+		$headers .= 'From: '.$fromName.'<'.$from.'>' . "\r\n"; 
+		 
+		// Send email 
+		if(mail($to, $subject, $htmlContent, $headers)){ 
+		    echo 'Email has sent successfully.<br/><br/>'; 
+		}else{ 
+		   echo 'Email sending failed.'; 
+		}
+		// TEST END
 
 		$empty = '';
 		// object oriented style prepared statement to update database row related to appropriate art category
