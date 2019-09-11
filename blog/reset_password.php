@@ -43,25 +43,77 @@ if (isset($_GET["key"]) && ($_GET["key"]!=="") && isset($_GET["email"]) && isset
 		
 		// Email body	 
 		$htmlContent = ' 
-			<html> 
-			<head> 
-				<title>Portfolio Toolkit</title> 
-			</head> 
-			<body> 
-				<h1>Portfolio Toolkit</h1> 
-				<table cellspacing="0" style="border: 2px dashed #FB4314; width: 100%; padding: 10px; float: left;"> 
-				<tr> 
-					<th>Name:</th><td>Portfolio Password Reset</td> 
-				</tr> 
-				<tr style="background-color: #e0e0e0;"> 
-					<th>Email:</th><td>'.$email.'</td> 
-				</tr> 
-				<tr> 
-					<th>Message:</th><td style="padding-left: 10px;">Password reset was a success! You may now log in!</td> 
-				</tr> 
-				</table> 
-			</body> 
-			</html>'; 
+		<html>
+		<head>
+		style type="text/css">
+		body, html {
+			background: #F1F1F1;
+			width:100%;
+			height:100%;
+		}
+
+		h1 {
+			font-family: "futura-pt", "Segoe UI", "Helvetica Neue", Arial, sans-serif !important;
+			text-transform: uppercase !important;
+			text-decoration: none !important;
+			letter-spacing: 0px !important;
+			font-weight: 300 !important;
+			font-size: 35px !important;
+		}
+
+		h2 {
+			font-family: "futura-pt", "Segoe UI", "Helvetica Neue", Arial, sans-serif !important;;
+			margin-top: 10px;
+			margin-bottom: 10px;
+			font-weight: 300 !important;;
+			font-size: 25px !important;
+			text-transform: uppercase;
+		}
+
+		.container_outerContent {
+			padding-bottom: 2rem;
+			color: #040404;
+			background-color: #F1F1F1;
+			height:100%;
+			padding:3%;
+		}
+
+		.container_innerContent {
+			width:80%;
+			bottom: 0;
+			position: relative;
+			background-color: #FFFFFF;
+			z-index: 100;
+			margin-left: auto;
+			margin-right: auto;
+			padding: 15px;
+			padding-top: 100px;
+			box-shadow: 12px 0 15px -4px rgba(154, 154, 154, 0.8), -12px 0 8px -4px #9E9E9E;
+		}
+
+		.small, small {
+			font-size:60% !important;
+		}
+
+		</style>
+
+		</head>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+		<body>
+
+			<div class="container_outerContent">
+			<div class="container_innerContent" style="padding:20px;">
+				<p>Your password has been successfully reset!</p>
+				<h2><small><?php echo $email_from; ?></small></h2>
+			</div>
+			</div>
+
+		</body>
+		</html>
+		';
 		 
 		// Set content-type header for sending HTML email 
 		$headers = "MIME-Version: 1.0" . "\r\n"; 
