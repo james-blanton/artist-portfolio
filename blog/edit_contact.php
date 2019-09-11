@@ -143,7 +143,7 @@ Select color for top bar of portfolio, url underline and image hover box shadow.
 <br/><br/>
 
 <label>Password Security Question</label><br/>
-<select id="security_question" name="security_question">
+<select id="security_question" name="security_question" class="full-width-dropdown">
 <option name="security_question" value="<?php echo $security_question; ?>" class="dropdown-uppercase"><?php echo $security_question; ?></option>
 <option name="security_question" value="What was the name of your first pet?">What was the name of your first pet?</option>
 <option name="security_question" value="What is your mother's middle name?">What is your mother's middle name?</option>

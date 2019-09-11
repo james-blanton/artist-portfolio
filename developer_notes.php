@@ -8,9 +8,9 @@ I am a novice programmer, so this portfolio package is not without flaws.
 
 Here are some currentlty known issues in the code:
 
-- Some notes need to be added to the forgot_pass.php, login.php files.
+- Some notes need to be added to login, forgot_pass, & reset_password.
 
-- Give the ability to change the existing password to something of their choosing. 
+- The password reset email is sort of ugly. The first url won't display correctly in a email.
 
 EOT;
 

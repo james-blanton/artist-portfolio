@@ -38,6 +38,7 @@ if(isset($_POST['log'])) {
 	$salt = '$2a$07$usesomadasdsadsadsadasdasdasdsadesillystringfors';
 	$username = $_POST['username'];
 	$password = crypt($password, $salt);
+
     $status = "";
 
     // object oriented style prepare statement
@@ -103,13 +104,31 @@ if(isset($_POST['log'])) {
 	<div class ="w3-container w3-light-grey"><h2>Login</h2></div>
 
 	<?php 
+	// Dislays a message to the user when the page loads after they have reset their password.
+	// After a  successful password reset the forgot_pass.php file redirects the user to login?status=reset
 	if(isset($_GET['status']) && $_GET['status'] == 'reset'){
 		echo 'Password reset. Wait a moment before checking your email and attempting to log in.<br/><br/>';
+	}
+
+	// Display a message to the user if the password reset email has been sent, but they have not clicked on the link
+	// contained within the email yet
+	if(isset($_GET['status']) && $_GET['status'] == 'pending'){
+		echo 'Password reset is still pending. Please check your email.<br/><br/>';
+	}
+
+	if(isset($_GET['status']) && $_GET['status'] == 'error'){
+		echo 'Error resetting password.<br/><br/>';
+	}
+
+	if(isset($_GET['status']) && $_GET['status'] == 'empty'){
+		echo 'You may not leave fields empty while resetting your password.<br/><br/>';
 	}
 	?>
 
 	<a href="forgot_pass.php">Forgot Password</a>?<br/><br/>
 	<?php echo $message; ?>
+	<?php 
+	?>
 	<form action ="" method ="POST" class="w3-container">
 		<label>Username</label>
 		<input type="text" name="username" class="w3-input w3-border">
