@@ -113,7 +113,7 @@ if(isset($_POST['log'])) {
 	// Display a message to the user if the password reset email has been sent, but they have not clicked on the link
 	// contained within the email yet
 	if(isset($_GET['status']) && $_GET['status'] == 'pending'){
-		echo 'Password reset is still pending. Please check your email.<br/><br/>';
+		echo 'Password reset is now in progress. Please check your email to complete the reset.<br/><br/>';
 	}
 
 	if(isset($_GET['status']) && $_GET['status'] == 'error'){
@@ -121,7 +121,7 @@ if(isset($_POST['log'])) {
 	}
 
 	if(isset($_GET['status']) && $_GET['status'] == 'empty'){
-		echo 'You may not leave fields empty while resetting your password.<br/><br/>';
+		echo 'You may not leave fields empty while resetting your password. Please try again.<br/><br/>';
 	}
 	?>
 

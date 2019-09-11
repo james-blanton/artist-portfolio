@@ -47,9 +47,9 @@ if (isset($_GET["key"]) && ($_GET["key"]!=="") && isset($_GET["email"]) && isset
 		// executes a prepared query and stores the result as TRUE or FALSE
 		$status = $stmt->execute();
 		
-		echo 'Password reset was a success.';
+		echo 'Password reset was a success.<br/><br/>Return to <a href="login">login</a>';
 		
-	} else {Redirect('login?status=error', false);}
+	} else { Redirect('login?status=error', false); }
 } 
 else {
 	Redirect('login?status=error', false);

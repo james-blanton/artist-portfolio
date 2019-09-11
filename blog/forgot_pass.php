@@ -62,14 +62,8 @@ if(isset($_POST['forgot'])) {
 						$url = 'reset_password.php?key='.$generated_key.'&email='.$email.'&newpass='.$new_pass.'&action=reset';
 						// send the email to confirm the password reset to the portfolio admin
 						// the body of the email
-	$msg = "It looks like you requested a password reset for your portfolio.\n
-	Copy this url in to your address bar following your portfolio blog directory in order to finish the password reset ->\n".$url.
-
-	"\n\nEXAMPLE URL:
-	example-site.com/blog/reset_password.php?key=".$generated_key."&email=".$email."&newpass=".$new_pass."&action=reset
-	"
-	;
-
+						$msg = 
+						"It looks like you requested a password reset for your portfolio.\nCopy this url in to your address bar following your portfolio blog directory in order to finish the password reset ->\n".$url."\n\nEXAMPLE URL: example-site.com/blog/reset_password.php?key=".$generated_key."&email=".$email."&newpass=".$new_pass."&action=reset";
 						// send email
 						mail($email,"Password Reset",$msg);
 
