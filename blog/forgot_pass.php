@@ -66,7 +66,7 @@ if(isset($_POST['forgot'])) {
 						$from = $email; 
 						$fromName = 'Portfolio Admin Toolkit'; 
 						 
-						$subject = "PortfolioPassword Reset"; 
+						$subject = "Portfolio Password Reset"; 
 						 
 						$htmlContent = ' 
 						    <html> 
