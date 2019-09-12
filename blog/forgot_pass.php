@@ -68,78 +68,9 @@ if(isset($_POST['forgot'])) {
 						$fromName = 'Portfolio Admin Toolkit'; 
 						$subject = "Portfolio Password Reset"; 
 
-						    $htmlContent = ' 
-						    <html>
-							<head>
-							<style type="text/css">
-							body, html {
-								background: #F1F1F1;
-								width:100%;
-								height:100%;
-							}
+						$content = 'It looks like you requested a password reset for your portfolio. Copy this url in to your address bar following your portfolio blog directory in order to finish the password reset: <a href="'.$reset_url.'">'.$reset_url.'</a>';
 
-							h1 {
-								font-family: "futura-pt", "Segoe UI", "Helvetica Neue", Arial, sans-serif !important;
-								text-transform: uppercase !important;
-								text-decoration: none !important;
-								letter-spacing: 0px !important;
-								font-weight: 300 !important;
-								font-size: 35px !important;
-							}
-
-							h2 {
-								font-family: "futura-pt", "Segoe UI", "Helvetica Neue", Arial, sans-serif !important;;
-								margin-top: 10px;
-								margin-bottom: 10px;
-								font-weight: 300 !important;;
-								font-size: 25px !important;
-								text-transform: uppercase;
-							}
-
-							.container_outerContent {
-								padding-bottom: 2rem;
-								color: #040404;
-								background-color: #F1F1F1;
-								height:100%;
-								padding:3%;
-							}
-
-							.container_innerContent {
-								width:80%;
-								bottom: 0;
-								position: relative;
-								background-color: #FFFFFF;
-								z-index: 100;
-								margin-left: auto;
-								margin-right: auto;
-								padding: 15px;
-								padding-top: 100px;
-								box-shadow: 12px 0 15px -4px rgba(154, 154, 154, 0.8), -12px 0 8px -4px #9E9E9E;
-							}
-
-							.small, small {
-								font-size:60% !important;
-							}
-
-							</style>
-
-							</head>
-							<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-							<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-							<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-
-							<body>
-
-								<div class="container_outerContent">
-									<div class="container_innerContent" style="padding:20px;">
-										<p>It looks like you requested a password reset for your portfolio. Copy this url in to your address bar following your portfolio blog directory in order to finish the password reset: <a href="'.$reset_url.'">'.$reset_url.'</a></p>
-										<h2><small><?php echo $email_from; ?></small></h2>
-									</div>
-								</div>
-
-							</body>
-							</html>
-							';
+						$htmlContent = generate_resetEmail($from, $content);
 						 
 						// Set content-type header for sending HTML email 
 						$headers = "MIME-Version: 1.0" . "\r\n"; 
